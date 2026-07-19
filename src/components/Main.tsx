@@ -18,7 +18,7 @@ function Main() {
             <a href="https://www.linkedin.com/in/sharaine-malarvijy/" target="_blank" rel="noreferrer"><LinkedInIcon/></a>
           </div>
           <h1>Sharaine MALARVIJY</h1>
-          <p>Etudiant IA</p>
+          <p>Étudiant en IA et traitement de l’image et du son</p>
 
           <div className="mobile_social_icons">
             <a href="https://github.com/SharaineMALARVIJY" target="_blank" rel="noreferrer"><GitHubIcon/></a>
