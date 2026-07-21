@@ -6,7 +6,7 @@ import { faMicrochip, faRobot } from '@fortawesome/free-solid-svg-icons';
 import Chip from '@mui/material/Chip';
 import '../assets/styles/Expertise.scss';
 
-const labelsFirst = [
+const labelsProgrammingFr = [
     "Python",
     "C",
     "C++",
@@ -16,7 +16,17 @@ const labelsFirst = [
     "ROS2"
 ];
 
-const labelsSecond = [
+const labelsProgrammingEn = [
+    "Python",
+    "C",
+    "C++",
+    "VHDL",
+    "Linux",
+    "Git",
+    "ROS2"
+];
+
+const labelsElectronicsFr = [
     "Électronique analogique",
     "Oscilloscope",
     "GBF",
@@ -26,7 +36,17 @@ const labelsSecond = [
     "Impression 3D"
 ];
 
-const labelsThird = [
+const labelsElectronicsEn = [
+    "Analog electronics",
+    "Oscilloscope",
+    "Function generator",
+    "Breadboard",
+    "Microcontrollers",
+    "Soldering",
+    "3D printing"
+];
+
+const labelsAIFr = [
     "IA",
     "Traitement d'image",
     "Traitement du son",
@@ -36,22 +56,37 @@ const labelsThird = [
     "SLAM"
 ];
 
-function Expertise() {
+const labelsAIEn = [
+    "AI",
+    "Image processing",
+    "Audio processing",
+    "TensorFlow",
+    "NumPy",
+    "Scikit-learn",
+    "SLAM"
+];
+
+function Expertise({ language }: any) {
+    const isFr = language !== 'en';
+
     return (
     <div className="container" id="expertise">
         <div className="skills-container">
-            <h1>Compétences</h1>
+            <h1>{isFr ? "Compétences" : "Skills"}</h1>
             <div className="skills-grid">
+
                 <div className="skill">
                     <FontAwesomeIcon icon={faRobot} size="3x"/>
-                    <h3>IA, image & robotique</h3>
+                    <h3>{isFr ? "IA, image & robotique" : "AI, image & robotics"}</h3>
                     <p>
-                        Je m’intéresse aux systèmes intelligents, à l’IA appliquée au traitement image/son
-                        et à la robotique autonome, notamment à travers des projets de navigation et de perception.
+                        {isFr
+                            ? "Je m’intéresse aux systèmes intelligents, à l’IA appliquée au traitement image/son et à la robotique autonome, notamment à travers des projets de navigation et de perception."
+                            : "I am interested in intelligent systems, AI applied to image and audio processing, and autonomous robotics, especially through navigation and perception projects."
+                        }
                     </p>
                     <div className="flex-chips">
-                        <span className="chip-title">Domaines :</span>
-                        {labelsThird.map((label, index) => (
+                        <span className="chip-title">{isFr ? "Domaines :" : "Fields:"}</span>
+                        {(isFr ? labelsAIFr : labelsAIEn).map((label, index) => (
                             <Chip key={index} className='chip' label={label} />
                         ))}
                     </div>
@@ -59,14 +94,16 @@ function Expertise() {
 
                 <div className="skill">
                     <FontAwesomeIcon icon={faPython} size="3x"/>
-                    <h3>Programmation & systèmes</h3>
+                    <h3>{isFr ? "Programmation & systèmes" : "Programming & systems"}</h3>
                     <p>
-                        Je développe principalement en Python, C et C++, avec une expérience sur Linux,
-                        Git et ROS2 pour des projets robotiques et embarqués.
+                        {isFr
+                            ? "Je développe principalement en Python, C et C++, avec une expérience sur Linux, Git et ROS2 pour des projets robotiques et embarqués."
+                            : "I mainly develop in Python, C and C++, with experience using Linux, Git and ROS2 for robotics and embedded projects."
+                        }
                     </p>
                     <div className="flex-chips">
-                        <span className="chip-title">Stack :</span>
-                        {labelsFirst.map((label, index) => (
+                        <span className="chip-title">{isFr ? "Stack :" : "Stack:"}</span>
+                        {(isFr ? labelsProgrammingFr : labelsProgrammingEn).map((label, index) => (
                             <Chip key={index} className='chip' label={label} />
                         ))}
                     </div>
@@ -74,18 +111,21 @@ function Expertise() {
 
                 <div className="skill">
                     <FontAwesomeIcon icon={faMicrochip} size="3x"/>
-                    <h3>Électronique & prototypage</h3>
+                    <h3>{isFr ? "Électronique & prototypage" : "Electronics & prototyping"}</h3>
                     <p>
-                        Je possède des bases solides en électronique analogique et en prototypage,
-                        avec l’utilisation d’outils de mesure, de microcontrôleurs et de montages expérimentaux.
+                        {isFr
+                            ? "Je possède des bases solides en électronique analogique et en prototypage, avec l’utilisation d’outils de mesure, de microcontrôleurs et de montages expérimentaux."
+                            : "I have solid foundations in analog electronics and prototyping, including the use of measurement tools, microcontrollers and experimental setups."
+                        }
                     </p>
                     <div className="flex-chips">
-                        <span className="chip-title">Compétences :</span>
-                        {labelsSecond.map((label, index) => (
+                        <span className="chip-title">{isFr ? "Compétences :" : "Skills:"}</span>
+                        {(isFr ? labelsElectronicsFr : labelsElectronicsEn).map((label, index) => (
                             <Chip key={index} className='chip' label={label} />
                         ))}
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

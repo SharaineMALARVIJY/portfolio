@@ -6,12 +6,14 @@ import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeli
 import 'react-vertical-timeline-component/style.min.css';
 import '../assets/styles/Timeline.scss';
 
-function Timeline() {
+function Timeline({ language }: any) {
+  const isFr = language !== 'en';
+
   return (
     <div id="history">
       <div className="items-container">
 
-        <h1>Formation</h1>
+        <h1>{isFr ? "Formation" : "Education"}</h1>
 
         <VerticalTimeline>
           <VerticalTimelineElement
@@ -23,13 +25,16 @@ function Timeline() {
             icon={<FontAwesomeIcon icon={faGraduationCap} />}
           >
             <h3 className="vertical-timeline-element-title">
-              Master Systèmes intelligents
+              {isFr ? "Master Systèmes intelligents" : "Master's Degree in Intelligent Systems"}
             </h3>
             <h4 className="vertical-timeline-element-subtitle">
               Sorbonne Université — Paris
             </h4>
             <p>
-              Parcours IA pour l’image et le son
+              {isFr
+                ? "Parcours IA pour l’image et le son"
+                : "Specialization in AI for image and audio processing"
+              }
             </p>
           </VerticalTimelineElement>
 
@@ -42,13 +47,16 @@ function Timeline() {
             icon={<FontAwesomeIcon icon={faGraduationCap} />}
           >
             <h3 className="vertical-timeline-element-title">
-              Licence EEA
+              {isFr ? "Licence EEA" : "Bachelor's Degree in EEA"}
             </h3>
             <h4 className="vertical-timeline-element-subtitle">
               Sorbonne Université — Paris
             </h4>
             <p>
-              Électronique, énergie électrique et automatique
+              {isFr
+                ? "Électronique, énergie électrique et automatique"
+                : "Electronics, electrical energy and automatic control"
+              }
             </p>
           </VerticalTimelineElement>
 
@@ -61,13 +69,16 @@ function Timeline() {
             icon={<FontAwesomeIcon icon={faGraduationCap} />}
           >
             <h3 className="vertical-timeline-element-title">
-              Licence 1
+              {isFr ? "Licence 1" : "First year of Bachelor's Degree"}
             </h3>
             <h4 className="vertical-timeline-element-subtitle">
               Sorbonne Université — Paris
             </h4>
             <p>
-              Parcours Science de l’ingénieur
+              {isFr
+                ? "Parcours Science de l’ingénieur"
+                : "Engineering science track"
+              }
             </p>
           </VerticalTimelineElement>
 
@@ -80,33 +91,41 @@ function Timeline() {
             icon={<FontAwesomeIcon icon={faGraduationCap} />}
           >
             <h3 className="vertical-timeline-element-title">
-              Baccalauréat
+              {isFr ? "Baccalauréat" : "French Baccalaureate"}
             </h3>
             <h4 className="vertical-timeline-element-subtitle">
-              Spécialités mathématiques et physique-chimie
+              {isFr
+                ? "Spécialités mathématiques et physique-chimie"
+                : "Specialized in mathematics, physics and chemistry"
+              }
             </h4>
           </VerticalTimelineElement>
         </VerticalTimeline>
 
-        <h1 className="timeline-second-title">Expérience</h1>
+        <h1 className="timeline-second-title">
+          {isFr ? "Expérience" : "Experience"}
+        </h1>
 
         <VerticalTimeline>
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
             contentStyle={{ background: 'white', color: 'rgb(39, 40, 34)' }}
             contentArrowStyle={{ borderRight: '7px solid white' }}
-            date="Été 2026"
+            date={isFr ? "Été 2026" : "Summer 2026"}
             iconStyle={{ background: '#5000ca', color: 'white' }}
             icon={<FontAwesomeIcon icon={faBriefcase} />}
           >
             <h3 className="vertical-timeline-element-title">
-              Stage de Master 1
+              {isFr ? "Stage de Master 1" : "First-year Master's Internship"}
             </h3>
             <h4 className="vertical-timeline-element-subtitle">
-              ADP — Laboratoire flux routier
+              ADP — {isFr ? "Laboratoire flux routier" : "Road traffic flow laboratory"}
             </h4>
             <p>
-              Analyse et comparaison de données de trafic issues de boucles de comptage et de caméras.
+              {isFr
+                ? "Analyse et comparaison de données de trafic issues de boucles de comptage et de caméras."
+                : "Analysis and comparison of traffic data from inductive loop counters and camera-based systems."
+              }
             </p>
           </VerticalTimelineElement>
         </VerticalTimeline>
