@@ -1,21 +1,22 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.52762df1.css",
-    "main.js": "/portfolio/static/js/main.5c15d8c7.js",
+    "main.css": "/portfolio/static/css/main.0efbe005.css",
+    "main.js": "/portfolio/static/js/main.9afa8bcc.js",
     "static/js/453.ace21015.chunk.js": "/portfolio/static/js/453.ace21015.chunk.js",
     "static/media/mock01.png": "/portfolio/static/media/mock01.68f8a8ab4d8b21ae3387.png",
     "static/media/cheapino.jpg": "/portfolio/static/media/cheapino.0e56437b43377f41d511.jpg",
     "static/media/bg-light.png": "/portfolio/static/media/bg-light.bac0efb485244a522981.png",
     "static/media/bg-dark.png": "/portfolio/static/media/bg-dark.f420c6b8458af72de935.png",
+    "static/media/logo_groupe_adp.jpg": "/portfolio/static/media/logo_groupe_adp.a8570f6e912bae268519.jpg",
     "static/media/mnist.jpg": "/portfolio/static/media/mnist.3d375155da1f0b881c0f.jpg",
     "static/media/Photo_CV.jpeg": "/portfolio/static/media/Photo_CV.3af2426c7fc4e65d3a8c.jpeg",
     "index.html": "/portfolio/index.html",
-    "main.52762df1.css.map": "/portfolio/static/css/main.52762df1.css.map",
-    "main.5c15d8c7.js.map": "/portfolio/static/js/main.5c15d8c7.js.map",
+    "main.0efbe005.css.map": "/portfolio/static/css/main.0efbe005.css.map",
+    "main.9afa8bcc.js.map": "/portfolio/static/js/main.9afa8bcc.js.map",
     "453.ace21015.chunk.js.map": "/portfolio/static/js/453.ace21015.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.52762df1.css",
-    "static/js/main.5c15d8c7.js"
+    "static/css/main.0efbe005.css",
+    "static/js/main.9afa8bcc.js"
   ]
 }
