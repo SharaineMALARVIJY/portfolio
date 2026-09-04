@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
 import React from "react";
 import mock01 from '../assets/images/mock01.png';
 import mnist from '../assets/images/mnist.jpg';
 import mock03 from '../assets/images/cheapino.jpg';
+import logo_adp from '../assets/images/logo_groupe_adp.jpg';
 import '../assets/styles/Project.scss';
 
 function Project({ language }: any) {
@@ -11,6 +13,32 @@ function Project({ language }: any) {
     <div className="projects-container" id="projects">
         <h1>{isFr ? "Projets" : "Projects"}</h1>
         <div className="projects-grid">
+
+            <div className="project">
+                <Link to="/projects/adp">
+                    <img
+                        src={logo_adp}
+                        className="zoom"
+                        alt={isFr ? "Stage Groupe ADP" : "Groupe ADP internship"}
+                        width="100%"
+                    />
+                </Link>
+
+                <Link to="/projects/adp">
+                    <h2>
+                        {isFr
+                            ? "Stage — Groupe ADP"
+                            : "Internship — Groupe ADP"}
+                    </h2>
+                </Link>
+
+                <p>
+                    {isFr
+                        ? "Analyse et fiabilisation de données de trafic routier à travers plusieurs outils de traitement et de visualisation."
+                        : "Analysis and validation of road traffic data through data processing and visualization tools."
+                    }
+                </p>
+            </div>
 
             <div className="project">
                 <a href="https://github.com/SharaineMALARVIJY/Course_2026_NitROS" target="_blank" rel="noreferrer">

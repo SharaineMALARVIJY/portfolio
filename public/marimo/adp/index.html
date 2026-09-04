@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./favicon.ico" />
+    <!-- Preload is necessary because we show these images when we disconnect from the server,
+    but at that point we cannot load these images from the server -->
+    <link rel="preload" href="./assets/gradient-yHQUC_QB.png" as="image" />
+    <link rel="preload" href="./assets/noise-60BoTA8O.png" as="image" />
+    <!-- Preload the fonts -->
+    <link rel="preload" href="./assets/Lora-VariableFont_wght-CZceb_kH.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Regular-Bam3NpBI.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Bold-C_DwAp7Z.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Regular-CEsLFVD9.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Medium-D5MAsWEG.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Bold-C6PDArdf.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="a marimo app" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.json" />
+
+    <script data-marimo="true">
+      function __resizeIframe(obj) {
+        const scrollbarHeight = 20; // Max between windows, mac, and linux
+
+        function setHeight() {
+          // Guard against race condition where iframe isn't ready
+          if (!obj.contentWindow?.document?.documentElement) {
+            return;
+          }
+          const element = obj.contentWindow.document.documentElement;
+          // If there is no vertical scrollbar, we don't need to resize the iframe
+          if (element.scrollHeight === element.clientHeight) {
+            return;
+          }
+
+          // Create a new height that includes the scrollbar height if it's visible
+          const hasHorizontalScrollbar = element.scrollWidth > element.clientWidth;
+          const newHeight = element.scrollHeight + (hasHorizontalScrollbar ? scrollbarHeight : 0);
+
+          // Only update the height if it's different from the current height
+          if (obj.style.height !== `${newHeight}px`) {
+            obj.style.height = `${newHeight}px`;
+          }
+        }
+
+        // Resize the iframe to the height of the content and bottom scrollbar height
+        setHeight();
+
+        // Resize the iframe when the content changes
+        const resizeObserver = new ResizeObserver((_entries) => {
+          setHeight();
+        });
+        // Only observe if iframe content is ready
+        if (obj.contentWindow?.document?.body) {
+          resizeObserver.observe(obj.contentWindow.document.body);
+        }
+      }
+    </script>
+    <marimo-filename hidden>notebook.py</marimo-filename>
+    <!-- TODO(Trevor): Legacy, required by VS Code plugin. Remove when plugin is updated (see marimo/server/_templates/template.py) -->
+    <marimo-version data-version="{{ version }}" hidden></marimo-version>
+    <marimo-user-config data-config="{{ user_config }}" hidden></marimo-user-config>
+    <marimo-server-token data-token="{{ server_token }}" hidden></marimo-server-token>
+    <!-- /TODO -->
+    <title>adp demo public</title>
+    <script type="module" crossorigin src="./assets/index-D73cl2ti.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/preload-helper-TXkS1QI3.js">
+    <link rel="modulepreload" crossorigin href="./assets/objects-BlG0ZrO0.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-LvLJmgfZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-Bj1aDYRI.js">
+    <link rel="modulepreload" crossorigin href="./assets/compiler-runtime-B3qBwwSJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/jsx-runtime-Blw4afVn.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEventListener-B_w3A283.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-DOVIEEPN.js">
+    <link rel="modulepreload" crossorigin href="./assets/precisionRound-i2ImZxgc.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-BUCH2FMc.js">
+    <link rel="modulepreload" crossorigin href="./assets/vega-loader.browser-Dun7Qe4B.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-HLb6RxVp.js">
+    <link rel="modulepreload" crossorigin href="./assets/clsx-XrBBnd7s.js">
+    <link rel="modulepreload" crossorigin href="./assets/cn-DYvqRARy.js">
+    <link rel="modulepreload" crossorigin href="./assets/badge-B92a4ePY.js">
+    <link rel="modulepreload" crossorigin href="./assets/button-eIihcbUw.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-dom-CSu739Rf.js">
+    <link rel="modulepreload" crossorigin href="./assets/fullscreen-dUjPYOmm.js">
+    <link rel="modulepreload" crossorigin href="./assets/menu-items-DbSLBfXR.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-ByVeMWkr.js">
+    <link rel="modulepreload" crossorigin href="./assets/createLucideIcon-w-Qo9n0R.js">
+    <link rel="modulepreload" crossorigin href="./assets/check-rzLRd0j9.js">
+    <link rel="modulepreload" crossorigin href="./assets/x-C-Eq0ag8.js">
+    <link rel="modulepreload" crossorigin href="./assets/select-B5TFNjmU.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-CFX4fYHU.js">
+    <link rel="modulepreload" crossorigin href="./assets/use-toast-BwJoaaDM.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEvent-D91BmmQi.js">
+    <link rel="modulepreload" crossorigin href="./assets/invariant-CkiqGLcK.js">
+    <link rel="modulepreload" crossorigin href="./assets/isObject-DvLSfCY5.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseFor-DKD1r8uL.js">
+    <link rel="modulepreload" crossorigin href="./assets/merge-_9WLTEyt.js">
+    <link rel="modulepreload" crossorigin href="./assets/zod-H_cgTO0M.js">
+    <link rel="modulepreload" crossorigin href="./assets/utils-Z80SV4_d.js">
+    <link rel="modulepreload" crossorigin href="./assets/Deferred-D2igisxY.js">
+    <link rel="modulepreload" crossorigin href="./assets/uuid-ImXS-885.js">
+    <link rel="modulepreload" crossorigin href="./assets/DeferredRequestRegistry-C8EV1PoE.js">
+    <link rel="modulepreload" crossorigin href="./assets/constants-CDyU_g2F.js">
+    <link rel="modulepreload" crossorigin href="./assets/session-CEFnN9Cq.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-BbOTTCYY.js">
+    <link rel="modulepreload" crossorigin href="./assets/requests-9-v2bhoi.js">
+    <link rel="modulepreload" crossorigin href="./assets/useLifecycle-lLOBhc-1.js">
+    <link rel="modulepreload" crossorigin href="./assets/useNonce-CbdaHKzX.js">
+    <link rel="modulepreload" crossorigin href="./assets/useTheme-KXqAyDPC.js">
+    <link rel="modulepreload" crossorigin href="./assets/arrays-DbOq36rN.js">
+    <link rel="modulepreload" crossorigin href="./assets/strings-Djnbwmfl.js">
+    <link rel="modulepreload" crossorigin href="./assets/once-CGKw_kwj.js">
+    <link rel="modulepreload" crossorigin href="./assets/capabilities-B09j1Eor.js">
+    <link rel="modulepreload" crossorigin href="./assets/createReducer-C7kZ8zEe.js">
+    <link rel="modulepreload" crossorigin href="./assets/paths-BKO-pHK6.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-12S8I4CH.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DYEuVkEX.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BCMBu0rO.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BJZAIIze.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-aRc_dRed.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DnjsPBRJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DcwTQG1A.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CPjTeT8p.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DI1-Z60I.js">
+    <link rel="modulepreload" crossorigin href="./assets/stex-FMMSUPAS.js">
+    <link rel="modulepreload" crossorigin href="./assets/toDate-Ct2FT81-.js">
+    <link rel="modulepreload" crossorigin href="./assets/purify.es-CWmnYhGI.js">
+    <link rel="modulepreload" crossorigin href="./assets/cjs-D5tzp-Y6.js">
+    <link rel="modulepreload" crossorigin href="./assets/isSymbol-BT6B8Bon.js">
+    <link rel="modulepreload" crossorigin href="./assets/now-CsYTPAhW.js">
+    <link rel="modulepreload" crossorigin href="./assets/debounce-OiXznToA.js">
+    <link rel="modulepreload" crossorigin href="./assets/database-zap-CKO8g4BU.js">
+    <link rel="modulepreload" crossorigin href="./assets/main-BNL5rxQw.js">
+    <link rel="modulepreload" crossorigin href="./assets/cells-Cf7bHHq3.js">
+    <link rel="modulepreload" crossorigin href="./assets/kbd-C5HnBH5U.js">
+    <link rel="modulepreload" crossorigin href="./assets/useInstallPackage-BRbUAUFn.js">
+    <link rel="modulepreload" crossorigin href="./assets/alert-dialog-BXegNC0I.js">
+    <link rel="modulepreload" crossorigin href="./assets/dialog-D1DEsRZ2.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDebounce-JDKr83KO.js">
+    <link rel="modulepreload" crossorigin href="./assets/numbers-CeeaFKqu.js">
+    <link rel="modulepreload" crossorigin href="./assets/SSRProvider-BUSmWJKC.js">
+    <link rel="modulepreload" crossorigin href="./assets/context-BFPaAUK_.js">
+    <link rel="modulepreload" crossorigin href="./assets/useNumberFormatter-4-Qvf4uR.js">
+    <link rel="modulepreload" crossorigin href="./assets/usePress-5hBv4sjD.js">
+    <link rel="modulepreload" crossorigin href="./assets/input-CqrUjynb.js">
+    <link rel="modulepreload" crossorigin href="./assets/ImperativeModal-BIavOiUv.js">
+    <link rel="modulepreload" crossorigin href="./assets/cell-link-DqBkyAFe.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-COUOIPEq.js">
+    <link rel="modulepreload" crossorigin href="./assets/alert-jlwhGxSb.js">
+    <link rel="modulepreload" crossorigin href="./assets/chevron-right-BS_NcSch.js">
+    <link rel="modulepreload" crossorigin href="./assets/dropdown-menu-BFZLnWeO.js">
+    <link rel="modulepreload" crossorigin href="./assets/links-wcQA1Np1.js">
+    <link rel="modulepreload" crossorigin href="./assets/useRunCells-CSSF_mJ0.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-BtTOqPTS.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-3iHFdt22.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-icon-C2pG0ZNK.js">
+    <link rel="modulepreload" crossorigin href="./assets/RenderHTML-BCvU9dYz.js">
+    <link rel="modulepreload" crossorigin href="./assets/datasource-ySAiC9gr.js">
+    <link rel="modulepreload" crossorigin href="./assets/state-DBzEQtWz.js">
+    <link rel="modulepreload" crossorigin href="./assets/hat-glasses-BttHlyvs.js">
+    <link rel="modulepreload" crossorigin href="./assets/package-Bxz_8e44.js">
+    <link rel="modulepreload" crossorigin href="./assets/sparkles-DUCpRFlS.js">
+    <link rel="modulepreload" crossorigin href="./assets/MarimoErrorOutput-DO2k2fA5.js">
+    <link rel="modulepreload" crossorigin href="./assets/ErrorBoundary-C7_5jjWi.js">
+    <link rel="modulepreload" crossorigin href="./assets/eye-off-BOZA7gbn.js">
+    <link rel="modulepreload" crossorigin href="./assets/refresh-cw-CYq4mK5a.js">
+    <link rel="modulepreload" crossorigin href="./assets/tree-actions-CsC2XmGo.js">
+    <link rel="modulepreload" crossorigin href="./assets/spinner-D-V4psAa.js">
+    <link rel="modulepreload" crossorigin href="./assets/html-to-image-CwmX28T9.js">
+    <link rel="modulepreload" crossorigin href="./assets/focus-DiEyfiAG.js">
+    <link rel="modulepreload" crossorigin href="./assets/useAsyncData-Bg5iAViP.js">
+    <link rel="modulepreload" crossorigin href="./assets/LazyAnyLanguageCodeMirror-sVm_hz8A.js">
+    <link rel="modulepreload" crossorigin href="./assets/micromark-factory-space-Dx_STMJD.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-5FQGJX7Z-Cp0LZT-a.js">
+    <link rel="modulepreload" crossorigin href="./assets/markdown-renderer-QvXG0CRk.js">
+    <link rel="modulepreload" crossorigin href="./assets/command-CAJLPEBq.js">
+    <link rel="modulepreload" crossorigin href="./assets/field-BeZbVzXA.js">
+    <link rel="modulepreload" crossorigin href="./assets/popover-DrHQ3KEt.js">
+    <link rel="modulepreload" crossorigin href="./assets/errors-PgHhDa-M.js">
+    <link rel="modulepreload" crossorigin href="./assets/download-BomYt3nl.js">
+    <link rel="modulepreload" crossorigin href="./assets/table-CH2plyy9.js">
+    <link rel="modulepreload" crossorigin href="./assets/useIframeCapabilities-Ccb4fvKc.js">
+    <link rel="modulepreload" crossorigin href="./assets/error-banner-B6eIlxzg.js">
+    <link rel="modulepreload" crossorigin href="./assets/formats-ClEFGPy-.js">
+    <link rel="modulepreload" crossorigin href="./assets/utils-CCTAhdFi.js">
+    <link rel="modulepreload" crossorigin href="./assets/en-US-CjNeNXDB.js">
+    <link rel="modulepreload" crossorigin href="./assets/isValid-D7naiWNs.js">
+    <link rel="modulepreload" crossorigin href="./assets/dates-D-kIKDYA.js">
+    <link rel="modulepreload" crossorigin href="./assets/extends-B9D0JO9U.js">
+    <link rel="modulepreload" crossorigin href="./assets/emotion-is-prop-valid.esm-lG8j6oqk.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDateFormatter-rtpVEy3J.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-icons.esm-D4GMDkIf.js">
+    <link rel="modulepreload" crossorigin href="./assets/RSPContexts-CgC81f0I.js">
+    <link rel="modulepreload" crossorigin href="./assets/table-D-tcnZC7.js">
+    <link rel="modulepreload" crossorigin href="./assets/ellipsis-C_B8Ux9M.js">
+    <link rel="modulepreload" crossorigin href="./assets/external-link-BOlXZUla.js">
+    <link rel="modulepreload" crossorigin href="./assets/message-circle-dL5J5ZsZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/plus-AgXtozBz.js">
+    <link rel="modulepreload" crossorigin href="./assets/trash-2-72W0TZ3L.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-resizable-panels.browser.esm-Z-MD3n3J.js">
+    <link rel="modulepreload" crossorigin href="./assets/JsonOutput-DnGSkLeP.js">
+    <link rel="modulepreload" crossorigin href="./assets/chart-no-axes-column-iDRxid4h.js">
+    <link rel="modulepreload" crossorigin href="./assets/square-function-DNNRTPQJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/spec-CzqcmYQk.js">
+    <link rel="modulepreload" crossorigin href="./assets/column-preview-BgZLUEOj.js">
+    <link rel="modulepreload" crossorigin href="./assets/icons-CIPE8AIY.js">
+    <link rel="modulepreload" crossorigin href="./assets/radio-group-CLBjGkt5.js">
+    <link rel="modulepreload" crossorigin href="./assets/floating-outline-wz-WSRgP.js">
+    <link rel="modulepreload" crossorigin href="./assets/switch-CvweaCXq.js">
+    <link rel="modulepreload" crossorigin href="./assets/objectWithoutPropertiesLoose-CboCOq4o.js">
+    <link rel="modulepreload" crossorigin href="./assets/esm-BL7jQmzn.js">
+    <link rel="modulepreload" crossorigin href="./assets/readonly-python-code-CW_G5e4E.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-headphone-DAu6VO6j.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-CJH9JNGH.js">
+    <link rel="modulepreload" crossorigin href="./assets/image-5XI2VU-q.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-icons-Cb54mIL8.js">
+    <link rel="modulepreload" crossorigin href="./assets/events-90X9nql5.js">
+    <link rel="modulepreload" crossorigin href="./assets/share-CYpcX4N4.js">
+    <link rel="modulepreload" crossorigin href="./assets/blob-C3EfaMOb.js">
+    <link rel="modulepreload" crossorigin href="./assets/memoize-Tp7rARFe.js">
+    <link rel="modulepreload" crossorigin href="./assets/get-C-qh_et5.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseSet-CsW0tABf.js">
+    <link rel="modulepreload" crossorigin href="./assets/state-BXbiRXZk.js">
+    <link rel="modulepreload" crossorigin href="./assets/label-BElwWzf0.js">
+    <link rel="modulepreload" crossorigin href="./assets/textarea-CpFfEUet.js">
+    <link rel="modulepreload" crossorigin href="./assets/refresh-ccw-sLaKP2vj.js">
+    <link rel="modulepreload" crossorigin href="./assets/form-CgWNb44_.js">
+    <link rel="modulepreload" crossorigin href="./assets/renderShortcut-BZLr8D7H.js">
+    <link rel="modulepreload" crossorigin href="./assets/useBoolean-D89u30n-.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDeepCompareMemoize-CSMoa-ga.js">
+    <link rel="modulepreload" crossorigin href="./assets/types-jdbI9Q8O.js">
+    <link rel="modulepreload" crossorigin href="./assets/semaphore-DtBYRzWS.js">
+    <link rel="modulepreload" crossorigin href="./assets/fileToBase64-C2Yy-YXq.js">
+    <link rel="modulepreload" crossorigin href="./assets/pathUtils-Bfcp5m-a.js">
+    <link rel="modulepreload" crossorigin href="./assets/prop-types-C638SUfx.js">
+    <link rel="modulepreload" crossorigin href="./assets/es-1D83cgiu.js">
+    <link rel="modulepreload" crossorigin href="./assets/_hasPath-hMc_3QZy.js">
+    <link rel="modulepreload" crossorigin href="./assets/hasIn-CSsM95b1.js">
+    <link rel="modulepreload" crossorigin href="./assets/flatten-Bd5tsfm_.js">
+    <link rel="modulepreload" crossorigin href="./assets/pick-D1xb4gl6.js">
+    <link rel="modulepreload" crossorigin href="./assets/code-xml-aSiY8T7C.js">
+    <link rel="modulepreload" crossorigin href="./assets/house-DS0r7dNZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/square-DFICx2Qv.js">
+    <link rel="modulepreload" crossorigin href="./assets/triangle-alert-BL4YVsPy.js">
+    <link rel="modulepreload" crossorigin href="./assets/bundle.esm-D0TWQ6iT.js">
+    <link rel="stylesheet" crossorigin href="./assets/cells-BVzo2MHf.css">
+    <link rel="stylesheet" crossorigin href="./assets/markdown-renderer-DdDKmWlR.css">
+    <link rel="stylesheet" crossorigin href="./assets/JsonOutput-BQtz7-np.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-BjlEpvLC.css">
+  <marimo-wasm hidden=""></marimo-wasm>
+    <script>
+        if (window.location.protocol === 'file:') {
+            alert('Warning: This file must be served by an HTTP server to function correctly.');
+        }
+    </script>
+    
+    <style>
+        #save-button {
+            display: none !important;
+        }
+        #filename-input {
+            display: none !important;
+        }
+    </style>
+    
+<script data-marimo="true">
+    Object.defineProperty(window, "__MARIMO_EXPORT_CONTEXT__", {
+        value: Object.freeze({
+            trusted: true,
+            notebookCode: "import marimo\n\n__generated_with = \"0.23.15\"\napp = marimo.App(width=\"full\")\n\n\n@app.cell\ndef _():\n    import marimo as mo\n    import matplotlib.pyplot as plt\n    import numpy as np\n    import pandas as pd\n\n    return mo, np, pd, plt\n\n\n@app.cell\ndef _(np, pd):\n    # ------------------------------------------------------------------\n    # Donn\u00e9es enti\u00e8rement synth\u00e9tiques.\n    # Elles reproduisent uniquement le type de comportement \u00e9tudi\u00e9\n    # pendant le stage et ne contiennent aucune donn\u00e9e Groupe ADP.\n    # ------------------------------------------------------------------\n\n    _rng = np.random.default_rng(42)\n\n    _dates = pd.date_range(\n        \"2026-01-01 00:00\",\n        \"2026-06-30 23:00\",\n        freq=\"h\",\n    )\n\n    _heure = _dates.hour.to_numpy()\n    _jour_semaine = _dates.dayofweek.to_numpy()\n\n    # Profil journalier simplifi\u00e9 :\n    # pointe du matin + pointe du soir.\n    _pointe_matin = 500 * np.exp(-((_heure - 8) / 2.3) ** 2)\n    _pointe_soir = 600 * np.exp(-((_heure - 18) / 2.8) ** 2)\n\n    _trafic_base = 250 + _pointe_matin + _pointe_soir\n\n    # Circulation plus faible le week-end.\n    _facteur_semaine = np.where(_jour_semaine \u003E= 5, 0.72, 1.0)\n    _trafic_base = _trafic_base * _facteur_semaine\n\n    _bruit_a = _rng.normal(0, 30, len(_dates))\n    _bruit_b = _rng.normal(0, 28, len(_dates))\n    _bruit_c = _rng.normal(0, 32, len(_dates))\n    _bruit_d = _rng.normal(0, 25, len(_dates))\n\n    _capteur_a = _trafic_base * 0.52 + _bruit_a\n    _capteur_b = _trafic_base * 0.48 + _bruit_b\n\n    # C mesure approximativement A+B avec un l\u00e9ger biais.\n    _capteur_c = _trafic_base * 1.035 + _bruit_c\n\n    # D reproduit un second capteur redondant avec un autre biais.\n    _capteur_d = _trafic_base * 0.985 + _bruit_d\n\n    donnees = pd.DataFrame(\n        {\n            \"Capteur A\": np.clip(_capteur_a, 0, None),\n            \"Capteur B\": np.clip(_capteur_b, 0, None),\n            \"Capteur C\": np.clip(_capteur_c, 0, None),\n            \"Capteur D\": np.clip(_capteur_d, 0, None),\n        },\n        index=_dates,\n    )\n\n    # Quelques anomalies artificielles.\n    _jours_anormaux = pd.to_datetime(\n        [\n            \"2026-02-14\",\n            \"2026-03-08\",\n            \"2026-04-19\",\n            \"2026-05-12\",\n            \"2026-06-03\",\n        ]\n    )\n\n    for _jour in _jours_anormaux:\n        _masque = donnees.index.normalize() == _jour\n        donnees.loc[_masque, \"Capteur C\"] *= 1.25\n\n    # Quelques p\u00e9riodes volontairement incompl\u00e8tes.\n    _jours_incomplets = pd.to_datetime(\n        [\n            \"2026-01-27\",\n            \"2026-03-21\",\n            \"2026-05-05\",\n        ]\n    )\n\n    for _jour in _jours_incomplets:\n        _masque = (\n            (donnees.index.normalize() == _jour)\n            \u0026 (donnees.index.hour \u003E= 10)\n        )\n        donnees.loc[_masque, \"Capteur C\"] = np.nan\n    return (donnees,)\n\n\n@app.cell\ndef _(mo):\n    comparaisons = {\n        \"Capteurs A + B \u2194 Capteur C\": (\n            [\"Capteur A\", \"Capteur B\"],\n            [\"Capteur C\"],\n        ),\n        \"Capteur C \u2194 Capteur D\": (\n            [\"Capteur C\"],\n            [\"Capteur D\"],\n        ),\n    }\n\n    choix_comparaison = mo.ui.dropdown(\n        options=list(comparaisons),\n        value=\"Capteurs A + B \u2194 Capteur C\",\n        label=\"Comparaison\",\n        full_width=True,\n    )\n    return choix_comparaison, comparaisons\n\n\n@app.cell\ndef _(donnees, mo):\n    _date_min = donnees.index.min().date()\n    _date_max = donnees.index.max().date()\n\n    periode = mo.ui.date_range(\n        start=_date_min,\n        stop=_date_max,\n        value=(_date_min, _date_max),\n        label=\"P\u00e9riode\",\n        full_width=True,\n    )\n\n    heures_min = mo.ui.number(\n        start=1,\n        stop=24,\n        step=1,\n        value=24,\n        label=\"Nombre minimal d'heures valides par jour\",\n        full_width=True,\n    )\n\n    seuil_ecart = mo.ui.number(\n        start=0,\n        stop=100,\n        step=1,\n        value=10,\n        label=\"Seuil d'\u00e9cart relatif (%)\",\n        full_width=True,\n    )\n\n    afficher_jours_incomplets = mo.ui.switch(\n        value=False,\n        label=\"Afficher les jours incomplets\",\n    )\n    return afficher_jours_incomplets, heures_min, periode, seuil_ecart\n\n\n@app.cell\ndef _(\n    afficher_jours_incomplets,\n    choix_comparaison,\n    heures_min,\n    mo,\n    periode,\n    seuil_ecart,\n):\n    mo.vstack(\n        [\n            mo.md(\n                \"\"\"\n    # Comparaison de capteurs routiers\n\n    Cette d\u00e9monstration reproduit de mani\u00e8re **tr\u00e8s simplifi\u00e9e** un outil d\u00e9velopp\u00e9\n    pendant mon stage au **Groupe ADP**.\n\n    \u003E Les donn\u00e9es pr\u00e9sent\u00e9es ici sont enti\u00e8rement synth\u00e9tiques.\n    \"\"\"\n            ),\n            choix_comparaison,\n            mo.hstack(\n                [\n                    periode,\n                    heures_min,\n                    seuil_ecart,\n                ],\n                widths=\"equal\",\n            ),\n            afficher_jours_incomplets,\n        ]\n    )\n    return\n\n\n@app.cell\ndef _(choix_comparaison, comparaisons, donnees, heures_min, pd, periode):\n    _capteurs_gauche, _capteurs_droite = comparaisons[choix_comparaison.value]\n\n    _date_debut, _date_fin = periode.value\n\n    _donnees_periode = donnees.loc[\n        pd.Timestamp(_date_debut):\n        pd.Timestamp(_date_fin) + pd.Timedelta(days=1) - pd.Timedelta(seconds=1)\n    ]\n\n    _serie_gauche = _donnees_periode[_capteurs_gauche].sum(\n        axis=1,\n        min_count=len(_capteurs_gauche),\n    )\n\n    _serie_droite = _donnees_periode[_capteurs_droite].sum(\n        axis=1,\n        min_count=len(_capteurs_droite),\n    )\n\n    _heures_valides_gauche = (\n        _donnees_periode[_capteurs_gauche]\n        .notna()\n        .all(axis=1)\n        .resample(\"D\")\n        .sum()\n    )\n\n    _heures_valides_droite = (\n        _donnees_periode[_capteurs_droite]\n        .notna()\n        .all(axis=1)\n        .resample(\"D\")\n        .sum()\n    )\n\n    comparaison = pd.DataFrame(\n        {\n            \"gauche\": _serie_gauche.resample(\"D\").sum(min_count=1),\n            \"droite\": _serie_droite.resample(\"D\").sum(min_count=1),\n            \"heures_valides_gauche\": _heures_valides_gauche,\n            \"heures_valides_droite\": _heures_valides_droite,\n        }\n    )\n\n    comparaison[\"jour_valide\"] = (\n        (comparaison[\"heures_valides_gauche\"] \u003E= int(heures_min.value))\n        \u0026 (comparaison[\"heures_valides_droite\"] \u003E= int(heures_min.value))\n    )\n    return (comparaison,)\n\n\n@app.cell\ndef _(comparaison, seuil_ecart):\n    comparaison_calculee = comparaison.copy()\n\n    comparaison_calculee[\"ecart_signe\"] = (\n        comparaison_calculee[\"gauche\"]\n        - comparaison_calculee[\"droite\"]\n    )\n\n    comparaison_calculee[\"ecart_absolu\"] = (\n        comparaison_calculee[\"ecart_signe\"].abs()\n    )\n\n    _reference = (\n        comparaison_calculee[[\"gauche\", \"droite\"]]\n        .abs()\n        .mean(axis=1)\n    )\n\n    comparaison_calculee[\"ecart_relatif_pct\"] = (\n        100\n        * comparaison_calculee[\"ecart_absolu\"]\n        / _reference.where(_reference.ne(0))\n    )\n\n    comparaison_calculee[\"ecart_relatif_signe_pct\"] = (\n        100\n        * comparaison_calculee[\"ecart_signe\"]\n        / _reference.where(_reference.ne(0))\n    )\n\n    comparaison_calculee[\"anomalie\"] = (\n        comparaison_calculee[\"jour_valide\"]\n        \u0026 comparaison_calculee[\"ecart_relatif_pct\"].gt(\n            float(seuil_ecart.value)\n        )\n    )\n    return (comparaison_calculee,)\n\n\n@app.cell\ndef _(comparaison_calculee, mo, pd, seuil_ecart):\n    _jours_total = len(comparaison_calculee)\n    _jours_compares = int(comparaison_calculee[\"jour_valide\"].sum())\n    _nombre_anomalies = int(comparaison_calculee[\"anomalie\"].sum())\n\n    _valides = comparaison_calculee[\n        comparaison_calculee[\"jour_valide\"]\n    ]\n\n    _biais_moyen = _valides[\"ecart_signe\"].mean()\n    _ecart_median = _valides[\"ecart_relatif_pct\"].median()\n    _ecart_moyen = _valides[\"ecart_relatif_pct\"].mean()\n\n    mo.hstack(\n        [\n            mo.stat(\n                value=str(_jours_compares),\n                label=\"Jours compar\u00e9s\",\n                caption=f\"Sur {_jours_total} jours\",\n            ),\n            mo.stat(\n                value=(\n                    f\"{_biais_moyen:+.0f}\"\n                    if not pd.isna(_biais_moyen)\n                    else \"\u2014\"\n                ),\n                label=\"Biais moyen\",\n            ),\n            mo.stat(\n                value=(\n                    f\"{_ecart_median:.1f} %\"\n                    if not pd.isna(_ecart_median)\n                    else \"\u2014\"\n                ),\n                label=\"\u00c9cart m\u00e9dian\",\n            ),\n            mo.stat(\n                value=(\n                    f\"{_ecart_moyen:.1f} %\"\n                    if not pd.isna(_ecart_moyen)\n                    else \"\u2014\"\n                ),\n                label=\"\u00c9cart moyen\",\n            ),\n            mo.stat(\n                value=str(_nombre_anomalies),\n                label=f\"Jours \u003E {seuil_ecart.value:g} %\",\n            ),\n        ],\n        widths=\"equal\",\n    )\n    return\n\n\n@app.cell\ndef _(\n    afficher_jours_incomplets,\n    choix_comparaison,\n    comparaison_calculee,\n    mo,\n    plt,\n    seuil_ecart,\n):\n    _fig, _ax = plt.subplots(figsize=(14, 5))\n\n    if afficher_jours_incomplets.value:\n        _serie_gauche_affichee = comparaison_calculee[\"gauche\"]\n        _serie_droite_affichee = comparaison_calculee[\"droite\"]\n    else:\n        _serie_gauche_affichee = comparaison_calculee[\"gauche\"].where(\n            comparaison_calculee[\"jour_valide\"]\n        )\n        _serie_droite_affichee = comparaison_calculee[\"droite\"].where(\n            comparaison_calculee[\"jour_valide\"]\n        )\n\n    _ax.plot(\n        comparaison_calculee.index,\n        _serie_gauche_affichee,\n        label=\"C\u00f4t\u00e9 gauche\",\n        linewidth=1.3,\n    )\n\n    _ax.plot(\n        comparaison_calculee.index,\n        _serie_droite_affichee,\n        label=\"C\u00f4t\u00e9 droit\",\n        linewidth=1.3,\n    )\n\n    _anomalies_graph = comparaison_calculee[\n        comparaison_calculee[\"anomalie\"]\n    ]\n\n    if not _anomalies_graph.empty:\n        _milieu_anomalies = (\n            _anomalies_graph[\"gauche\"]\n            + _anomalies_graph[\"droite\"]\n        ) / 2\n\n        _ax.scatter(\n            _anomalies_graph.index,\n            _milieu_anomalies,\n            marker=\"x\",\n            s=35,\n            linewidths=1.5,\n            label=f\"\u00c9cart \u003E {seuil_ecart.value:g} %\",\n            zorder=4,\n        )\n\n    _ax.set_title(\n        f\"D\u00e9bits journaliers \u2014 {choix_comparaison.value}\"\n    )\n    _ax.set_xlabel(\"Date\")\n    _ax.set_ylabel(\"D\u00e9bit journalier\")\n    _ax.grid(alpha=0.25)\n    _ax.legend()\n    _fig.tight_layout()\n\n    mo.mpl.interactive(_fig)\n    return\n\n\n@app.cell\ndef _(comparaison_calculee, mo, plt, seuil_ecart):\n    _fig_ecart, _ax_ecart = plt.subplots(figsize=(14, 4))\n\n    _ecart_affiche = comparaison_calculee[\n        \"ecart_relatif_signe_pct\"\n    ].where(\n        comparaison_calculee[\"jour_valide\"]\n    )\n\n    _ax_ecart.plot(\n        comparaison_calculee.index,\n        _ecart_affiche,\n        linewidth=1.2,\n    )\n\n    _ax_ecart.axhline(\n        0,\n        linewidth=1,\n    )\n\n    _ax_ecart.axhline(\n        float(seuil_ecart.value),\n        linestyle=\"--\",\n        linewidth=1,\n    )\n\n    _ax_ecart.axhline(\n        -float(seuil_ecart.value),\n        linestyle=\"--\",\n        linewidth=1,\n    )\n\n    _ax_ecart.set_title(\n        \"\u00c9cart relatif sign\u00e9 entre les deux mesures\"\n    )\n    _ax_ecart.set_xlabel(\"Date\")\n    _ax_ecart.set_ylabel(\"\u00c9cart (%)\")\n    _ax_ecart.grid(alpha=0.25)\n    _fig_ecart.tight_layout()\n\n    mo.mpl.interactive(_fig_ecart)\n    return\n\n\nif __name__ == \"__main__\":\n    app.run()\n",
+        }),
+        writable: false,
+        configurable: false,
+    });
+</script>
+<marimo-code hidden="">import%20marimo%0A%0A__generated_with%20%3D%20%220.23.15%22%0Aapp%20%3D%20marimo.App(width%3D%22full%22)%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20import%20marimo%20as%20mo%0A%20%20%20%20import%20matplotlib.pyplot%20as%20plt%0A%20%20%20%20import%20numpy%20as%20np%0A%20%20%20%20import%20pandas%20as%20pd%0A%0A%20%20%20%20return%20mo%2C%20np%2C%20pd%2C%20plt%0A%0A%0A%40app.cell%0Adef%20_(np%2C%20pd)%3A%0A%20%20%20%20%23%20------------------------------------------------------------------%0A%20%20%20%20%23%20Donn%C3%A9es%20enti%C3%A8rement%20synth%C3%A9tiques.%0A%20%20%20%20%23%20Elles%20reproduisent%20uniquement%20le%20type%20de%20comportement%20%C3%A9tudi%C3%A9%0A%20%20%20%20%23%20pendant%20le%20stage%20et%20ne%20contiennent%20aucune%20donn%C3%A9e%20Groupe%20ADP.%0A%20%20%20%20%23%20------------------------------------------------------------------%0A%0A%20%20%20%20_rng%20%3D%20np.random.default_rng(42)%0A%0A%20%20%20%20_dates%20%3D%20pd.date_range(%0A%20%20%20%20%20%20%20%20%222026-01-01%2000%3A00%22%2C%0A%20%20%20%20%20%20%20%20%222026-06-30%2023%3A00%22%2C%0A%20%20%20%20%20%20%20%20freq%3D%22h%22%2C%0A%20%20%20%20)%0A%0A%20%20%20%20_heure%20%3D%20_dates.hour.to_numpy()%0A%20%20%20%20_jour_semaine%20%3D%20_dates.dayofweek.to_numpy()%0A%0A%20%20%20%20%23%20Profil%20journalier%20simplifi%C3%A9%20%3A%0A%20%20%20%20%23%20pointe%20du%20matin%20%2B%20pointe%20du%20soir.%0A%20%20%20%20_pointe_matin%20%3D%20500%20*%20np.exp(-((_heure%20-%208)%20%2F%202.3)%20**%202)%0A%20%20%20%20_pointe_soir%20%3D%20600%20*%20np.exp(-((_heure%20-%2018)%20%2F%202.8)%20**%202)%0A%0A%20%20%20%20_trafic_base%20%3D%20250%20%2B%20_pointe_matin%20%2B%20_pointe_soir%0A%0A%20%20%20%20%23%20Circulation%20plus%20faible%20le%20week-end.%0A%20%20%20%20_facteur_semaine%20%3D%20np.where(_jour_semaine%20%3E%3D%205%2C%200.72%2C%201.0)%0A%20%20%20%20_trafic_base%20%3D%20_trafic_base%20*%20_facteur_semaine%0A%0A%20%20%20%20_bruit_a%20%3D%20_rng.normal(0%2C%2030%2C%20len(_dates))%0A%20%20%20%20_bruit_b%20%3D%20_rng.normal(0%2C%2028%2C%20len(_dates))%0A%20%20%20%20_bruit_c%20%3D%20_rng.normal(0%2C%2032%2C%20len(_dates))%0A%20%20%20%20_bruit_d%20%3D%20_rng.normal(0%2C%2025%2C%20len(_dates))%0A%0A%20%20%20%20_capteur_a%20%3D%20_trafic_base%20*%200.52%20%2B%20_bruit_a%0A%20%20%20%20_capteur_b%20%3D%20_trafic_base%20*%200.48%20%2B%20_bruit_b%0A%0A%20%20%20%20%23%20C%20mesure%20approximativement%20A%2BB%20avec%20un%20l%C3%A9ger%20biais.%0A%20%20%20%20_capteur_c%20%3D%20_trafic_base%20*%201.035%20%2B%20_bruit_c%0A%0A%20%20%20%20%23%20D%20reproduit%20un%20second%20capteur%20redondant%20avec%20un%20autre%20biais.%0A%20%20%20%20_capteur_d%20%3D%20_trafic_base%20*%200.985%20%2B%20_bruit_d%0A%0A%20%20%20%20donnees%20%3D%20pd.DataFrame(%0A%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%22Capteur%20A%22%3A%20np.clip(_capteur_a%2C%200%2C%20None)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22Capteur%20B%22%3A%20np.clip(_capteur_b%2C%200%2C%20None)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22Capteur%20C%22%3A%20np.clip(_capteur_c%2C%200%2C%20None)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22Capteur%20D%22%3A%20np.clip(_capteur_d%2C%200%2C%20None)%2C%0A%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20index%3D_dates%2C%0A%20%20%20%20)%0A%0A%20%20%20%20%23%20Quelques%20anomalies%20artificielles.%0A%20%20%20%20_jours_anormaux%20%3D%20pd.to_datetime(%0A%20%20%20%20%20%20%20%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%222026-02-14%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%222026-03-08%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%222026-04-19%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%222026-05-12%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%222026-06-03%22%2C%0A%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20)%0A%0A%20%20%20%20for%20_jour%20in%20_jours_anormaux%3A%0A%20%20%20%20%20%20%20%20_masque%20%3D%20donnees.index.normalize()%20%3D%3D%20_jour%0A%20%20%20%20%20%20%20%20donnees.loc%5B_masque%2C%20%22Capteur%20C%22%5D%20*%3D%201.25%0A%0A%20%20%20%20%23%20Quelques%20p%C3%A9riodes%20volontairement%20incompl%C3%A8tes.%0A%20%20%20%20_jours_incomplets%20%3D%20pd.to_datetime(%0A%20%20%20%20%20%20%20%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%222026-01-27%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%222026-03-21%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%222026-05-05%22%2C%0A%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20)%0A%0A%20%20%20%20for%20_jour%20in%20_jours_incomplets%3A%0A%20%20%20%20%20%20%20%20_masque%20%3D%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20(donnees.index.normalize()%20%3D%3D%20_jour)%0A%20%20%20%20%20%20%20%20%20%20%20%20%26%20(donnees.index.hour%20%3E%3D%2010)%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20%20%20%20%20donnees.loc%5B_masque%2C%20%22Capteur%20C%22%5D%20%3D%20np.nan%0A%20%20%20%20return%20(donnees%2C)%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20comparaisons%20%3D%20%7B%0A%20%20%20%20%20%20%20%20%22Capteurs%20A%20%2B%20B%20%E2%86%94%20Capteur%20C%22%3A%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20%5B%22Capteur%20A%22%2C%20%22Capteur%20B%22%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%5B%22Capteur%20C%22%5D%2C%0A%20%20%20%20%20%20%20%20)%2C%0A%20%20%20%20%20%20%20%20%22Capteur%20C%20%E2%86%94%20Capteur%20D%22%3A%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20%5B%22Capteur%20C%22%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%5B%22Capteur%20D%22%5D%2C%0A%20%20%20%20%20%20%20%20)%2C%0A%20%20%20%20%7D%0A%0A%20%20%20%20choix_comparaison%20%3D%20mo.ui.dropdown(%0A%20%20%20%20%20%20%20%20options%3Dlist(comparaisons)%2C%0A%20%20%20%20%20%20%20%20value%3D%22Capteurs%20A%20%2B%20B%20%E2%86%94%20Capteur%20C%22%2C%0A%20%20%20%20%20%20%20%20label%3D%22Comparaison%22%2C%0A%20%20%20%20%20%20%20%20full_width%3DTrue%2C%0A%20%20%20%20)%0A%20%20%20%20return%20choix_comparaison%2C%20comparaisons%0A%0A%0A%40app.cell%0Adef%20_(donnees%2C%20mo)%3A%0A%20%20%20%20_date_min%20%3D%20donnees.index.min().date()%0A%20%20%20%20_date_max%20%3D%20donnees.index.max().date()%0A%0A%20%20%20%20periode%20%3D%20mo.ui.date_range(%0A%20%20%20%20%20%20%20%20start%3D_date_min%2C%0A%20%20%20%20%20%20%20%20stop%3D_date_max%2C%0A%20%20%20%20%20%20%20%20value%3D(_date_min%2C%20_date_max)%2C%0A%20%20%20%20%20%20%20%20label%3D%22P%C3%A9riode%22%2C%0A%20%20%20%20%20%20%20%20full_width%3DTrue%2C%0A%20%20%20%20)%0A%0A%20%20%20%20heures_min%20%3D%20mo.ui.number(%0A%20%20%20%20%20%20%20%20start%3D1%2C%0A%20%20%20%20%20%20%20%20stop%3D24%2C%0A%20%20%20%20%20%20%20%20step%3D1%2C%0A%20%20%20%20%20%20%20%20value%3D24%2C%0A%20%20%20%20%20%20%20%20label%3D%22Nombre%20minimal%20d'heures%20valides%20par%20jour%22%2C%0A%20%20%20%20%20%20%20%20full_width%3DTrue%2C%0A%20%20%20%20)%0A%0A%20%20%20%20seuil_ecart%20%3D%20mo.ui.number(%0A%20%20%20%20%20%20%20%20start%3D0%2C%0A%20%20%20%20%20%20%20%20stop%3D100%2C%0A%20%20%20%20%20%20%20%20step%3D1%2C%0A%20%20%20%20%20%20%20%20value%3D10%2C%0A%20%20%20%20%20%20%20%20label%3D%22Seuil%20d'%C3%A9cart%20relatif%20(%25)%22%2C%0A%20%20%20%20%20%20%20%20full_width%3DTrue%2C%0A%20%20%20%20)%0A%0A%20%20%20%20afficher_jours_incomplets%20%3D%20mo.ui.switch(%0A%20%20%20%20%20%20%20%20value%3DFalse%2C%0A%20%20%20%20%20%20%20%20label%3D%22Afficher%20les%20jours%20incomplets%22%2C%0A%20%20%20%20)%0A%20%20%20%20return%20afficher_jours_incomplets%2C%20heures_min%2C%20periode%2C%20seuil_ecart%0A%0A%0A%40app.cell%0Adef%20_(%0A%20%20%20%20afficher_jours_incomplets%2C%0A%20%20%20%20choix_comparaison%2C%0A%20%20%20%20heures_min%2C%0A%20%20%20%20mo%2C%0A%20%20%20%20periode%2C%0A%20%20%20%20seuil_ecart%2C%0A)%3A%0A%20%20%20%20mo.vstack(%0A%20%20%20%20%20%20%20%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.md(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%23%20Comparaison%20de%20capteurs%20routiers%0A%0A%20%20%20%20Cette%20d%C3%A9monstration%20reproduit%20de%20mani%C3%A8re%20**tr%C3%A8s%20simplifi%C3%A9e**%20un%20outil%20d%C3%A9velopp%C3%A9%0A%20%20%20%20pendant%20mon%20stage%20au%20**Groupe%20ADP**.%0A%0A%20%20%20%20%3E%20Les%20donn%C3%A9es%20pr%C3%A9sent%C3%A9es%20ici%20sont%20enti%C3%A8rement%20synth%C3%A9tiques.%0A%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20%20%20%20%20)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20choix_comparaison%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.hstack(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20periode%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20heures_min%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20seuil_ecart%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20widths%3D%22equal%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20afficher_jours_incomplets%2C%0A%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(choix_comparaison%2C%20comparaisons%2C%20donnees%2C%20heures_min%2C%20pd%2C%20periode)%3A%0A%20%20%20%20_capteurs_gauche%2C%20_capteurs_droite%20%3D%20comparaisons%5Bchoix_comparaison.value%5D%0A%0A%20%20%20%20_date_debut%2C%20_date_fin%20%3D%20periode.value%0A%0A%20%20%20%20_donnees_periode%20%3D%20donnees.loc%5B%0A%20%20%20%20%20%20%20%20pd.Timestamp(_date_debut)%3A%0A%20%20%20%20%20%20%20%20pd.Timestamp(_date_fin)%20%2B%20pd.Timedelta(days%3D1)%20-%20pd.Timedelta(seconds%3D1)%0A%20%20%20%20%5D%0A%0A%20%20%20%20_serie_gauche%20%3D%20_donnees_periode%5B_capteurs_gauche%5D.sum(%0A%20%20%20%20%20%20%20%20axis%3D1%2C%0A%20%20%20%20%20%20%20%20min_count%3Dlen(_capteurs_gauche)%2C%0A%20%20%20%20)%0A%0A%20%20%20%20_serie_droite%20%3D%20_donnees_periode%5B_capteurs_droite%5D.sum(%0A%20%20%20%20%20%20%20%20axis%3D1%2C%0A%20%20%20%20%20%20%20%20min_count%3Dlen(_capteurs_droite)%2C%0A%20%20%20%20)%0A%0A%20%20%20%20_heures_valides_gauche%20%3D%20(%0A%20%20%20%20%20%20%20%20_donnees_periode%5B_capteurs_gauche%5D%0A%20%20%20%20%20%20%20%20.notna()%0A%20%20%20%20%20%20%20%20.all(axis%3D1)%0A%20%20%20%20%20%20%20%20.resample(%22D%22)%0A%20%20%20%20%20%20%20%20.sum()%0A%20%20%20%20)%0A%0A%20%20%20%20_heures_valides_droite%20%3D%20(%0A%20%20%20%20%20%20%20%20_donnees_periode%5B_capteurs_droite%5D%0A%20%20%20%20%20%20%20%20.notna()%0A%20%20%20%20%20%20%20%20.all(axis%3D1)%0A%20%20%20%20%20%20%20%20.resample(%22D%22)%0A%20%20%20%20%20%20%20%20.sum()%0A%20%20%20%20)%0A%0A%20%20%20%20comparaison%20%3D%20pd.DataFrame(%0A%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%22gauche%22%3A%20_serie_gauche.resample(%22D%22).sum(min_count%3D1)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22droite%22%3A%20_serie_droite.resample(%22D%22).sum(min_count%3D1)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22heures_valides_gauche%22%3A%20_heures_valides_gauche%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%22heures_valides_droite%22%3A%20_heures_valides_droite%2C%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20)%0A%0A%20%20%20%20comparaison%5B%22jour_valide%22%5D%20%3D%20(%0A%20%20%20%20%20%20%20%20(comparaison%5B%22heures_valides_gauche%22%5D%20%3E%3D%20int(heures_min.value))%0A%20%20%20%20%20%20%20%20%26%20(comparaison%5B%22heures_valides_droite%22%5D%20%3E%3D%20int(heures_min.value))%0A%20%20%20%20)%0A%20%20%20%20return%20(comparaison%2C)%0A%0A%0A%40app.cell%0Adef%20_(comparaison%2C%20seuil_ecart)%3A%0A%20%20%20%20comparaison_calculee%20%3D%20comparaison.copy()%0A%0A%20%20%20%20comparaison_calculee%5B%22ecart_signe%22%5D%20%3D%20(%0A%20%20%20%20%20%20%20%20comparaison_calculee%5B%22gauche%22%5D%0A%20%20%20%20%20%20%20%20-%20comparaison_calculee%5B%22droite%22%5D%0A%20%20%20%20)%0A%0A%20%20%20%20comparaison_calculee%5B%22ecart_absolu%22%5D%20%3D%20(%0A%20%20%20%20%20%20%20%20comparaison_calculee%5B%22ecart_signe%22%5D.abs()%0A%20%20%20%20)%0A%0A%20%20%20%20_reference%20%3D%20(%0A%20%20%20%20%20%20%20%20comparaison_calculee%5B%5B%22gauche%22%2C%20%22droite%22%5D%5D%0A%20%20%20%20%20%20%20%20.abs()%0A%20%20%20%20%20%20%20%20.mean(axis%3D1)%0A%20%20%20%20)%0A%0A%20%20%20%20comparaison_calculee%5B%22ecart_relatif_pct%22%5D%20%3D%20(%0A%20%20%20%20%20%20%20%20100%0A%20%20%20%20%20%20%20%20*%20comparaison_calculee%5B%22ecart_absolu%22%5D%0A%20%20%20%20%20%20%20%20%2F%20_reference.where(_reference.ne(0))%0A%20%20%20%20)%0A%0A%20%20%20%20comparaison_calculee%5B%22ecart_relatif_signe_pct%22%5D%20%3D%20(%0A%20%20%20%20%20%20%20%20100%0A%20%20%20%20%20%20%20%20*%20comparaison_calculee%5B%22ecart_signe%22%5D%0A%20%20%20%20%20%20%20%20%2F%20_reference.where(_reference.ne(0))%0A%20%20%20%20)%0A%0A%20%20%20%20comparaison_calculee%5B%22anomalie%22%5D%20%3D%20(%0A%20%20%20%20%20%20%20%20comparaison_calculee%5B%22jour_valide%22%5D%0A%20%20%20%20%20%20%20%20%26%20comparaison_calculee%5B%22ecart_relatif_pct%22%5D.gt(%0A%20%20%20%20%20%20%20%20%20%20%20%20float(seuil_ecart.value)%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20)%0A%20%20%20%20return%20(comparaison_calculee%2C)%0A%0A%0A%40app.cell%0Adef%20_(comparaison_calculee%2C%20mo%2C%20pd%2C%20seuil_ecart)%3A%0A%20%20%20%20_jours_total%20%3D%20len(comparaison_calculee)%0A%20%20%20%20_jours_compares%20%3D%20int(comparaison_calculee%5B%22jour_valide%22%5D.sum())%0A%20%20%20%20_nombre_anomalies%20%3D%20int(comparaison_calculee%5B%22anomalie%22%5D.sum())%0A%0A%20%20%20%20_valides%20%3D%20comparaison_calculee%5B%0A%20%20%20%20%20%20%20%20comparaison_calculee%5B%22jour_valide%22%5D%0A%20%20%20%20%5D%0A%0A%20%20%20%20_biais_moyen%20%3D%20_valides%5B%22ecart_signe%22%5D.mean()%0A%20%20%20%20_ecart_median%20%3D%20_valides%5B%22ecart_relatif_pct%22%5D.median()%0A%20%20%20%20_ecart_moyen%20%3D%20_valides%5B%22ecart_relatif_pct%22%5D.mean()%0A%0A%20%20%20%20mo.hstack(%0A%20%20%20%20%20%20%20%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.stat(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20value%3Dstr(_jours_compares)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20label%3D%22Jours%20compar%C3%A9s%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20caption%3Df%22Sur%20%7B_jours_total%7D%20jours%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.stat(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20value%3D(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20f%22%7B_biais_moyen%3A%2B.0f%7D%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20not%20pd.isna(_biais_moyen)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20else%20%22%E2%80%94%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20label%3D%22Biais%20moyen%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.stat(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20value%3D(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20f%22%7B_ecart_median%3A.1f%7D%20%25%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20not%20pd.isna(_ecart_median)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20else%20%22%E2%80%94%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20label%3D%22%C3%89cart%20m%C3%A9dian%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.stat(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20value%3D(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20f%22%7B_ecart_moyen%3A.1f%7D%20%25%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20not%20pd.isna(_ecart_moyen)%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20else%20%22%E2%80%94%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20label%3D%22%C3%89cart%20moyen%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.stat(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20value%3Dstr(_nombre_anomalies)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20label%3Df%22Jours%20%3E%20%7Bseuil_ecart.value%3Ag%7D%20%25%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20)%2C%0A%20%20%20%20%20%20%20%20%5D%2C%0A%20%20%20%20%20%20%20%20widths%3D%22equal%22%2C%0A%20%20%20%20)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(%0A%20%20%20%20afficher_jours_incomplets%2C%0A%20%20%20%20choix_comparaison%2C%0A%20%20%20%20comparaison_calculee%2C%0A%20%20%20%20mo%2C%0A%20%20%20%20plt%2C%0A%20%20%20%20seuil_ecart%2C%0A)%3A%0A%20%20%20%20_fig%2C%20_ax%20%3D%20plt.subplots(figsize%3D(14%2C%205))%0A%0A%20%20%20%20if%20afficher_jours_incomplets.value%3A%0A%20%20%20%20%20%20%20%20_serie_gauche_affichee%20%3D%20comparaison_calculee%5B%22gauche%22%5D%0A%20%20%20%20%20%20%20%20_serie_droite_affichee%20%3D%20comparaison_calculee%5B%22droite%22%5D%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20_serie_gauche_affichee%20%3D%20comparaison_calculee%5B%22gauche%22%5D.where(%0A%20%20%20%20%20%20%20%20%20%20%20%20comparaison_calculee%5B%22jour_valide%22%5D%0A%20%20%20%20%20%20%20%20)%0A%20%20%20%20%20%20%20%20_serie_droite_affichee%20%3D%20comparaison_calculee%5B%22droite%22%5D.where(%0A%20%20%20%20%20%20%20%20%20%20%20%20comparaison_calculee%5B%22jour_valide%22%5D%0A%20%20%20%20%20%20%20%20)%0A%0A%20%20%20%20_ax.plot(%0A%20%20%20%20%20%20%20%20comparaison_calculee.index%2C%0A%20%20%20%20%20%20%20%20_serie_gauche_affichee%2C%0A%20%20%20%20%20%20%20%20label%3D%22C%C3%B4t%C3%A9%20gauche%22%2C%0A%20%20%20%20%20%20%20%20linewidth%3D1.3%2C%0A%20%20%20%20)%0A%0A%20%20%20%20_ax.plot(%0A%20%20%20%20%20%20%20%20comparaison_calculee.index%2C%0A%20%20%20%20%20%20%20%20_serie_droite_affichee%2C%0A%20%20%20%20%20%20%20%20label%3D%22C%C3%B4t%C3%A9%20droit%22%2C%0A%20%20%20%20%20%20%20%20linewidth%3D1.3%2C%0A%20%20%20%20)%0A%0A%20%20%20%20_anomalies_graph%20%3D%20comparaison_calculee%5B%0A%20%20%20%20%20%20%20%20comparaison_calculee%5B%22anomalie%22%5D%0A%20%20%20%20%5D%0A%0A%20%20%20%20if%20not%20_anomalies_graph.empty%3A%0A%20%20%20%20%20%20%20%20_milieu_anomalies%20%3D%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20_anomalies_graph%5B%22gauche%22%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20%2B%20_anomalies_graph%5B%22droite%22%5D%0A%20%20%20%20%20%20%20%20)%20%2F%202%0A%0A%20%20%20%20%20%20%20%20_ax.scatter(%0A%20%20%20%20%20%20%20%20%20%20%20%20_anomalies_graph.index%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20_milieu_anomalies%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20marker%3D%22x%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20s%3D35%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20linewidths%3D1.5%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20label%3Df%22%C3%89cart%20%3E%20%7Bseuil_ecart.value%3Ag%7D%20%25%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20zorder%3D4%2C%0A%20%20%20%20%20%20%20%20)%0A%0A%20%20%20%20_ax.set_title(%0A%20%20%20%20%20%20%20%20f%22D%C3%A9bits%20journaliers%20%E2%80%94%20%7Bchoix_comparaison.value%7D%22%0A%20%20%20%20)%0A%20%20%20%20_ax.set_xlabel(%22Date%22)%0A%20%20%20%20_ax.set_ylabel(%22D%C3%A9bit%20journalier%22)%0A%20%20%20%20_ax.grid(alpha%3D0.25)%0A%20%20%20%20_ax.legend()%0A%20%20%20%20_fig.tight_layout()%0A%0A%20%20%20%20mo.mpl.interactive(_fig)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(comparaison_calculee%2C%20mo%2C%20plt%2C%20seuil_ecart)%3A%0A%20%20%20%20_fig_ecart%2C%20_ax_ecart%20%3D%20plt.subplots(figsize%3D(14%2C%204))%0A%0A%20%20%20%20_ecart_affiche%20%3D%20comparaison_calculee%5B%0A%20%20%20%20%20%20%20%20%22ecart_relatif_signe_pct%22%0A%20%20%20%20%5D.where(%0A%20%20%20%20%20%20%20%20comparaison_calculee%5B%22jour_valide%22%5D%0A%20%20%20%20)%0A%0A%20%20%20%20_ax_ecart.plot(%0A%20%20%20%20%20%20%20%20comparaison_calculee.index%2C%0A%20%20%20%20%20%20%20%20_ecart_affiche%2C%0A%20%20%20%20%20%20%20%20linewidth%3D1.2%2C%0A%20%20%20%20)%0A%0A%20%20%20%20_ax_ecart.axhline(%0A%20%20%20%20%20%20%20%200%2C%0A%20%20%20%20%20%20%20%20linewidth%3D1%2C%0A%20%20%20%20)%0A%0A%20%20%20%20_ax_ecart.axhline(%0A%20%20%20%20%20%20%20%20float(seuil_ecart.value)%2C%0A%20%20%20%20%20%20%20%20linestyle%3D%22--%22%2C%0A%20%20%20%20%20%20%20%20linewidth%3D1%2C%0A%20%20%20%20)%0A%0A%20%20%20%20_ax_ecart.axhline(%0A%20%20%20%20%20%20%20%20-float(seuil_ecart.value)%2C%0A%20%20%20%20%20%20%20%20linestyle%3D%22--%22%2C%0A%20%20%20%20%20%20%20%20linewidth%3D1%2C%0A%20%20%20%20)%0A%0A%20%20%20%20_ax_ecart.set_title(%0A%20%20%20%20%20%20%20%20%22%C3%89cart%20relatif%20sign%C3%A9%20entre%20les%20deux%20mesures%22%0A%20%20%20%20)%0A%20%20%20%20_ax_ecart.set_xlabel(%22Date%22)%0A%20%20%20%20_ax_ecart.set_ylabel(%22%C3%89cart%20(%25)%22)%0A%20%20%20%20_ax_ecart.grid(alpha%3D0.25)%0A%20%20%20%20_fig_ecart.tight_layout()%0A%0A%20%20%20%20mo.mpl.interactive(_fig_ecart)%0A%20%20%20%20return%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20app.run()%0A</marimo-code></head>
+  <body>
+    <div id="root"></div>
+    <script data-marimo="true">
+      Object.defineProperty(window, "__MARIMO_MOUNT_CONFIG__", {
+        value: Object.freeze({
+            "filename": "notebook.py",
+            "cwd": "",
+            "lspWorkspace": null,
+            "mode": "read",
+            "version": "0.23.15",
+            "serverToken": "unused",
+            "config": {"ai": {"custom_providers": {}, "enabled": true, "models": {"custom_models": [], "displayed_models": []}}, "completion": {"activate_on_typing": true, "auto_close_pairs": true, "copilot": false, "signature_hint_on_typing": false}, "diagnostics": {"sql_linter": true}, "display": {"cell_output": "below", "code_editor_font_size": 14, "dataframes": "rich", "default_table_max_columns": 50, "default_table_page_size": 10, "default_width": "medium", "reference_highlighting": true, "theme": "light"}, "formatting": {"line_length": 79}, "keymap": {"overrides": {}, "preset": "default"}, "language_servers": {"pylsp": {"enable_flake8": false, "enable_mypy": true, "enable_pydocstyle": false, "enable_pyflakes": false, "enable_pylint": false, "enable_ruff": true, "enabled": false}}, "mcp": {"mcpServers": {}, "presets": []}, "package_management": {"manager": "pip"}, "runtime": {"auto_instantiate": false, "auto_reload": "off", "default_csv_encoding": "utf-8", "default_sql_output": "auto", "on_cell_change": "autorun", "output_max_bytes": 8000000, "reactive_tests": true, "show_tracebacks": false, "std_stream_max_bytes": 1000000, "watcher_on_save": "lazy"}, "save": {"autosave": "off", "autosave_delay": 1000, "format_on_save": false}, "server": {"browser": "default", "follow_symlink": false}, "snippets": {"custom_paths": [], "include_default_snippets": true}},
+            "configOverrides": {},
+            "appConfig": {"sql_output": "auto", "width": "full"},
+            "view": {"showAppCode": false},
+            "notebook": null,
+            "session": null,
+            "runtimeConfig": null,
+        }),
+        writable: false,
+        configurable: false,
+      });
+    </script>
+  </body>
+</html>

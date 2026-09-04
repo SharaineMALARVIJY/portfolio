@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import {Routes, Route, useLocation} from "react-router-dom";
 import {
   Main,
   Timeline,
@@ -9,11 +10,14 @@ import {
   Footer,
 } from "./components";
 import FadeIn from './components/FadeIn';
+import Adp from './pages/Adp';
 import './index.scss';
 
 type Language = 'fr' | 'en';
 
 function App() {
+    const location = useLocation();
+
     const [mode, setMode] = useState<string>('dark');
     const [language, setLanguage] = useState<Language>('fr');
 
@@ -26,26 +30,54 @@ function App() {
     }
 
     useEffect(() => {
-        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
-    }, []);
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'auto'
+        });
+    }, [location.pathname]);
 
     return (
     <div className={`main-container ${mode === 'dark' ? 'dark-mode' : 'light-mode'}`}>
-        <Navigation
-            parentToChild={{mode, language}}
-            modeChange={handleModeChange}
-            languageChange={handleLanguageChange}
-        />
+        <Routes>
+            <Route
+                path="/"
+                element={
+                    <>
+                        <Navigation
+                            parentToChild={{mode, language}}
+                            modeChange={handleModeChange}
+                            languageChange={handleLanguageChange}
+                        />
 
-        <FadeIn transitionDuration={700}>
-            <Main language={language}/>
-            <Expertise language={language}/>
-            <Timeline language={language}/>
-            <Project language={language}/>
-            <Contact language={language}/>
-        </FadeIn>
+                        <FadeIn transitionDuration={700}>
+                            <Main language={language}/>
+                            <Expertise language={language}/>
+                            <Timeline language={language}/>
+                            <Project language={language}/>
+                            <Contact language={language}/>
+                        </FadeIn>
 
-        <Footer />
+                        <Footer />
+                    </>
+                }
+            />
+
+            <Route
+                path="/projects/adp"
+                element={
+                    <>
+                        <Adp
+                            language={language}
+                            mode={mode}
+                            modeChange={handleModeChange}
+                            languageChange={handleLanguageChange}
+                        />
+                        <Footer />
+                    </>
+                }
+            />
+        </Routes>
     </div>
     );
 }
