@@ -30,12 +30,27 @@ function App() {
     }
 
     useEffect(() => {
-        window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: 'auto'
-        });
-    }, [location.pathname]);
+        const state = location.state as { scrollTo?: string } | null;
+
+        if (location.pathname === '/' && state?.scrollTo) {
+            requestAnimationFrame(() => {
+                const element = document.getElementById(state.scrollTo!);
+
+                if (element) {
+                    element.scrollIntoView({
+                        behavior: 'auto',
+                        block: 'start'
+                    });
+                }
+            });
+        } else {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'auto'
+            });
+        }
+    }, [location.pathname, location.state]);
 
     return (
     <div className={`main-container ${mode === 'dark' ? 'dark-mode' : 'light-mode'}`}>

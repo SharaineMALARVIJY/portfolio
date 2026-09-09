@@ -103,7 +103,7 @@ function AdpNavigation({
         <ListItem disablePadding>
           <ListItemButton
             sx={{ textAlign: 'center' }}
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/', { state: { scrollTo: 'projects' } })}
           >
             <ListItemText
               primary={language === 'fr' ? 'Retour au portfolio' : 'Back to portfolio'}
@@ -165,7 +165,7 @@ function AdpNavigation({
             }}
           >
             <Button
-              onClick={() => navigate('/')}
+              onClick={() => navigate('/', { state: { scrollTo: 'projects' } })}
               sx={{
                 color: '#fff',
                 display: { xs: 'none', sm: 'flex' },
