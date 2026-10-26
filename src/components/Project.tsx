@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import mock01 from '../assets/images/mock01.png';
+import mock01 from '../assets/images/covapsy_equipe.jpg';
 import mnist from '../assets/images/mnist.jpg';
 import mock03 from '../assets/images/cheapino.jpg';
 import logo_adp from '../assets/images/logo_groupe_adp.jpg';
@@ -61,7 +61,7 @@ function Project({ language }: any) {
             </div>
 
             <div className="project">
-                <a href="https://github.com/SharaineMALARVIJY" target="_blank" rel="noreferrer">
+                <a href="https://wiki.fablab.sorbonne-universite.fr/BookStack/books/clavier-ergonomique-cheapino-Iys" target="_blank" rel="noreferrer">
                     <img
                         src={mock03}
                         className="zoom"
@@ -69,7 +69,7 @@ function Project({ language }: any) {
                         width="100%"
                     />
                 </a>
-                <a href="https://github.com/SharaineMALARVIJY" target="_blank" rel="noreferrer">
+                <a href="https://wiki.fablab.sorbonne-universite.fr/BookStack/books/clavier-ergonomique-cheapino-Iys" target="_blank" rel="noreferrer">
                     <h2>{isFr ? "Clavier personnalisé" : "Custom keyboard"}</h2>
                 </a>
                 <p>
@@ -97,6 +97,38 @@ function Project({ language }: any) {
                         ? "Création d’un modèle d’intelligence artificielle en Python pour reconnaître des chiffres manuscrits, avec TensorFlow, NumPy et Scikit-learn."
                         : "Creation of an artificial intelligence model in Python to recognize handwritten digits, using TensorFlow, NumPy and Scikit-learn."
                     }
+                </p>
+            </div>
+
+            <div className="project">
+                <video
+                    src={`${process.env.PUBLIC_URL}/videos/Demo_hil-serl.mp4`}
+                    className="zoom"
+                    width="100%"
+                    muted
+                    loop
+                    autoPlay
+                    playsInline
+                />
+
+                <h2>
+                    {isFr ? "Robot Learning — HIL / SERL" : "Robot Learning — HIL / SERL"}
+                </h2>
+
+                <p>
+                    {isFr
+                        ? "Apprentissage d’une tâche de manipulation robotique avec SERL et intervention humaine dans MuJoCo. Collecte de démonstrations, entraînement hors ligne et contrôle interactif du robot."
+                        : "Learning a robotic manipulation task with SERL and human intervention in MuJoCo. Demonstration collection, offline training and interactive robot control."
+                    }
+                </p>
+
+                <p>
+                    <em>
+                        {isFr
+                            ? "Dépôt privé — vidéo de démonstration disponible."
+                            : "Private repository — demo video available."
+                        }
+                    </em>
                 </p>
             </div>
 
